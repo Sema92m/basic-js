@@ -22,6 +22,8 @@ class DepthCalculator {
             }
         }
         return d;
+        
+      
     }
 }
 
@@ -29,18 +31,27 @@ module.exports = {
     DepthCalculator,
 };
 
-//npm run test ./test/recursive-depth.teest.js
+//npm run test ./test/recursive-depth.test.js
 
-// let arr = [1, [8, [[]]], 2, 3, [8, [[[[[[[[[[[[[]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]];
-// function calculateDepth1(arr) {
-//     let d = 1;
-//     for (let i = 0; i < arr.length; i++) {
-//         if (Array.isArray(arr[i])) {
-//             const nest = calculateDepth1(arr[i]) + 1;
-//             d = Math.max(d, nest);
-//         }
-//     }
+let arr = [1, [8, [[]]], 2, 3, [8, [[[[[[[[[[[[[]]]]]]]]]]]]]], [8, [[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]], 4, 5, ['6575', ['adas', ['dfg', [0]]]]];
+function calculateDepth1(arr) {
+  
+    
+}
+console.log(calculateDepth1(arr));
 
-//     return d;
+
+
+
+
+
+
+// function calculateDepth(arr) {
+//     return Array.isArray(arr)
+//         ? 1 +
+//               arr.reduce(
+//                   (max, item) => Math.max(max, this.calculateDepth(item)),
+//                   0
+//               )
+//         : 0;
 // }
-// console.log(calculateDepth1(arr));

@@ -14,26 +14,21 @@ const { NotImplementedError } = require("../extensions/index.js");
 function getSeason(date) {
     if (!date) {
         return "Unable to determine the time of year!";
-    }
-    if (!Date.parse(date)) {
+     } else if (!Date.parse(date) || !date.getUTCSeconds()) {
         throw new Error("Invalid date!");
-    }
-    try {
-        date.getUTCSeconds();
-    } catch {
-        throw new Error("Invalid date!");
-    }
+    } else {
+        let month = date.getMonth() + 1;
 
-    let month = date.getMonth() + 1;
+        if (month < 3 || month === 12) {
+            return "winter";
 
-    if (month < 3 || month === 12) {
-        return "winter";
-    } else if (month >= 3 && month < 6) {
-        return "spring";
-    } else if (month >= 6 && month < 9) {
-        return "summer";
-    } else if (month > 8 && month < 12) {
-        return "fall";
+        } else if (month >= 3 && month < 6) {
+            return "spring";
+        } else if (month >= 6 && month < 9) {
+            return "summer";
+        } else if (month > 8 && month < 12) {
+            return "fall";
+        }
     }
 }
 getSeason();
@@ -41,9 +36,6 @@ getSeason();
 module.exports = {
     getSeason,
 };
-
-
-
 
 // npm run test ./test/what-season.test.js
 
